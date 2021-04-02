@@ -30,56 +30,56 @@ namespace WF
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Model));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.modelMenuStrip = new System.Windows.Forms.MenuStrip();
+            this.modelStatusStrip = new System.Windows.Forms.StatusStrip();
+            this.modelToolStrip = new System.Windows.Forms.ToolStrip();
             this.NewButton = new System.Windows.Forms.ToolStripButton();
             this.ExitButton = new System.Windows.Forms.ToolStripButton();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
+            this.modelMenuStrip.SuspendLayout();
+            this.modelToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // modelMenuStrip
             // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.modelMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.modelMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.windowToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.modelMenuStrip.Location = new System.Drawing.Point(0, 0);
+            this.modelMenuStrip.Name = "modelMenuStrip";
+            this.modelMenuStrip.Size = new System.Drawing.Size(800, 30);
+            this.modelMenuStrip.TabIndex = 0;
+            this.modelMenuStrip.Text = "modelMenuStrip";
             // 
-            // statusStrip1
+            // modelStatusStrip
             // 
-            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip1.Location = new System.Drawing.Point(0, 428);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(800, 22);
-            this.statusStrip1.TabIndex = 1;
-            this.statusStrip1.Text = "statusStrip1";
+            this.modelStatusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.modelStatusStrip.Location = new System.Drawing.Point(0, 428);
+            this.modelStatusStrip.Name = "modelStatusStrip";
+            this.modelStatusStrip.Size = new System.Drawing.Size(800, 22);
+            this.modelStatusStrip.TabIndex = 1;
+            this.modelStatusStrip.Text = "statusStrip1";
             // 
-            // toolStrip1
+            // modelToolStrip
             // 
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.modelToolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.modelToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.NewButton,
             this.ExitButton});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 28);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(800, 27);
-            this.toolStrip1.TabIndex = 2;
-            this.toolStrip1.Text = "toolStrip1";
+            this.modelToolStrip.Location = new System.Drawing.Point(0, 30);
+            this.modelToolStrip.Name = "modelToolStrip";
+            this.modelToolStrip.Size = new System.Drawing.Size(800, 31);
+            this.modelToolStrip.TabIndex = 2;
+            this.modelToolStrip.Text = "toolStrip1";
             // 
             // NewButton
             // 
             this.NewButton.Image = ((System.Drawing.Image)(resources.GetObject("NewButton.Image")));
             this.NewButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.NewButton.Name = "NewButton";
-            this.NewButton.Size = new System.Drawing.Size(63, 24);
+            this.NewButton.Size = new System.Drawing.Size(63, 28);
             this.NewButton.Text = "New";
             this.NewButton.Click += new System.EventHandler(this.NewButton_Click);
             // 
@@ -88,20 +88,20 @@ namespace WF
             this.ExitButton.Image = ((System.Drawing.Image)(resources.GetObject("ExitButton.Image")));
             this.ExitButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ExitButton.Name = "ExitButton";
-            this.ExitButton.Size = new System.Drawing.Size(57, 24);
+            this.ExitButton.Size = new System.Drawing.Size(57, 28);
             this.ExitButton.Text = "Exit";
             this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 26);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // windowToolStripMenuItem
             // 
             this.windowToolStripMenuItem.Name = "windowToolStripMenuItem";
-            this.windowToolStripMenuItem.Size = new System.Drawing.Size(78, 24);
+            this.windowToolStripMenuItem.Size = new System.Drawing.Size(78, 26);
             this.windowToolStripMenuItem.Text = "Window";
             // 
             // Model
@@ -109,17 +109,17 @@ namespace WF
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.modelToolStrip);
+            this.Controls.Add(this.modelStatusStrip);
+            this.Controls.Add(this.modelMenuStrip);
             this.IsMdiContainer = true;
-            this.MainMenuStrip = this.menuStrip1;
+            this.MainMenuStrip = this.modelMenuStrip;
             this.Name = "Model";
             this.Text = "Model";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.modelMenuStrip.ResumeLayout(false);
+            this.modelMenuStrip.PerformLayout();
+            this.modelToolStrip.ResumeLayout(false);
+            this.modelToolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -127,9 +127,9 @@ namespace WF
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        public System.Windows.Forms.MenuStrip modelMenuStrip;
+        public System.Windows.Forms.StatusStrip modelStatusStrip;
+        public System.Windows.Forms.ToolStrip modelToolStrip;
         private System.Windows.Forms.ToolStripButton NewButton;
         private System.Windows.Forms.ToolStripButton ExitButton;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;

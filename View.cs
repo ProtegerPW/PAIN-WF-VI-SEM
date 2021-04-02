@@ -19,19 +19,17 @@ namespace WF
             songList_ = document;
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
+
+        private void View_Activated(object sender, EventArgs e)
         {
-            
+            ToolStripManager.Merge(viewStatusStrip, ((Model)MdiParent).modelStatusStrip);
+            ToolStripManager.Merge(viewToolStrip, ((Model)MdiParent).modelToolStrip);
         }
 
-        private void toolStripContainer1_TopToolStripPanel_Click(object sender, EventArgs e)
+        private void View_Deactivate(object sender, EventArgs e)
         {
-
-        }
-
-        private void toolStripComboBox1_Click(object sender, EventArgs e)
-        {
-
+            ToolStripManager.RevertMerge(((Model)MdiParent).modelStatusStrip, viewStatusStrip);
+            ToolStripManager.RevertMerge(((Model)MdiParent).modelToolStrip, viewToolStrip);
         }
     }
 }
