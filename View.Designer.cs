@@ -61,7 +61,7 @@ namespace WF
             // 
             // toolStripContainer1.ContentPanel
             // 
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(800, 396);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(800, 367);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
@@ -80,7 +80,7 @@ namespace WF
             this.viewStatusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.viewStatusStrip.Location = new System.Drawing.Point(0, 0);
             this.viewStatusStrip.Name = "viewStatusStrip";
-            this.viewStatusStrip.Size = new System.Drawing.Size(800, 24);
+            this.viewStatusStrip.Size = new System.Drawing.Size(800, 22);
             this.viewStatusStrip.TabIndex = 1;
             this.viewStatusStrip.Text = "viewStatusStrip";
             // 
@@ -125,6 +125,7 @@ namespace WF
             this.AddSong.Name = "AddSong";
             this.AddSong.Size = new System.Drawing.Size(61, 28);
             this.AddSong.Text = "Add";
+            this.AddSong.Click += new System.EventHandler(this.AddSong_Click);
             // 
             // EditSong
             // 

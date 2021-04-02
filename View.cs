@@ -31,5 +31,11 @@ namespace WF
             ToolStripManager.RevertMerge(((Model)MdiParent).modelStatusStrip, viewStatusStrip);
             ToolStripManager.RevertMerge(((Model)MdiParent).modelToolStrip, viewToolStrip);
         }
+
+        private void AddSong_Click(object sender, EventArgs e)
+        {
+            AddForm newSong = new AddForm();
+            newSong.Show();
+        }
     }
 }
