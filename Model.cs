@@ -12,7 +12,7 @@ namespace WF
 {
     public partial class Model : Form
     {
-        private SongDoc Document { set; get; } = new SongDoc();
+        private SongDoc document = new SongDoc();
         public Model()
         {
             InitializeComponent();
@@ -20,7 +20,7 @@ namespace WF
 
         private void NewButton_Click(object sender, EventArgs e)
         {
-            View songView = new View(Document);
+            View songView = new View(document);
             songView.MdiParent = this;
             songView.Show();
         }

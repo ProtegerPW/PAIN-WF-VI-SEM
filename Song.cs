@@ -26,7 +26,7 @@ namespace WF
             set;
         }
 
-        public String Type
+        public String Genre
         {
             get;
             set;
@@ -37,7 +37,7 @@ namespace WF
             Title = title;
             Author = author;
             Production = production;
-            Type = type;
+            Genre = type;
         }
     }
 }

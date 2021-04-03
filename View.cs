@@ -12,11 +12,11 @@ namespace WF
 {
     public partial class View : Form
     {
-        private SongDoc songList_ { set; get; }
+        private SongDoc songViewDoc { set; get; }
         public View(SongDoc document)
         {
             InitializeComponent();
-            songList_ = document;
+            songViewDoc = document;
         }
 
 
@@ -34,8 +34,27 @@ namespace WF
 
         private void AddSong_Click(object sender, EventArgs e)
         {
-            AddForm newSong = new AddForm();
-            newSong.Show();
+            AddForm newSongForm = new AddForm(null, songViewDoc.songList_ );
+            if(newSongForm.ShowDialog() == DialogResult.OK)
+            {
+                Song newSong = new Song(newSongForm.SongTitle, newSongForm.SongAuthor, newSongForm.SongDate, newSongForm.SongGenre);
+                songViewDoc.AddSong(newSong);
+                ListViewItem item = new ListViewItem();
+                item.Tag = newSong;
+                UpdateItem(item);
+                songListView.Items.Add(item);                
+            }
+        }
+
+        private void UpdateItem (ListViewItem item)
+        {
+            Song newSong = (Song)item.Tag;
+            while (item.SubItems.Count < 4)
+                item.SubItems.Add(new ListViewItem.ListViewSubItem());
+            item.SubItems[0].Text = newSong.Title;
+            item.SubItems[1].Text = newSong.Author;
+            item.SubItems[2].Text = newSong.Production.ToShortDateString();
+            item.SubItems[3].Text = newSong.Genre;
         }
     }
 }

@@ -9,25 +9,26 @@ namespace WF
     public class SongDoc
     {
         public List<Song> songList_ { get; set;} = new List<Song>();
+
         public event Action<Song> songAddedEv;
         public event Action<Song> songUpdatedEv;
         public event Action<Song> songDeletedEv;
 
-        public void AddSong (Song demo)
+        public void AddSong (Song newSong)
         {
-            songList_.Add(demo);
-            songAddedEv.Invoke(demo);
+            songList_.Add(newSong);
+            songAddedEv.Invoke(newSong);
         }
 
-        public void UpdateSong (Song demo)
+        public void UpdateSong (Song editSong)
         { 
-            songUpdatedEv.Invoke(demo);
+            songUpdatedEv.Invoke(editSong);
         }
 
-        public void DeleteSong (Song demo)
+        public void DeleteSong (Song editSong)
         {
-            songList_.Remove(demo);
-            songDeletedEv.Invoke(demo);
+            songList_.Remove(editSong);
+            songDeletedEv.Invoke(editSong);
         }
     }
 }
