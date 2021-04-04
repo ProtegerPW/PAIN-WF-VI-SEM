@@ -56,5 +56,31 @@ namespace WF
             item.SubItems[2].Text = newSong.Production.ToShortDateString();
             item.SubItems[3].Text = newSong.Genre;
         }
+
+        private void UpdateItems()
+        {
+            songListView.Items.Clear();
+            foreach(Song song in songViewDoc.songList_)
+            {
+                ListViewItem item = new ListViewItem();
+                item.Tag = song;
+                UpdateItem(item);
+                songListView.Items.Add(item);
+            }
+        }
+
+        private void View_Load(object sender, EventArgs e)
+        {
+            UpdateItems();
+            songViewDoc.songAddedEv += ViewDoc_AddSongEvent;
+        }
+
+        private void ViewDoc_AddSongEvent(Song song)
+        {
+            ListViewItem item = new ListViewItem();
+            item.Tag = song;
+            UpdateItem(item);
+            songListView.Items.Add(item);
+        }
     }
 }

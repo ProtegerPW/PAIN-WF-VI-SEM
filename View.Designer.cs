@@ -33,6 +33,11 @@ namespace WF
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(View));
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.viewStatusStrip = new System.Windows.Forms.StatusStrip();
+            this.songListView = new System.Windows.Forms.ListView();
+            this.Title = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Author = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Genre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.viewMenuStrip = new System.Windows.Forms.MenuStrip();
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStrip = new System.Windows.Forms.ToolStrip();
@@ -44,11 +49,6 @@ namespace WF
             this.addToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.songListView = new System.Windows.Forms.ListView();
-            this.Title = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Author = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Genre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.toolStripContainer1.BottomToolStripPanel.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
@@ -68,7 +68,7 @@ namespace WF
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.songListView);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(464, 281);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(464, 287);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
@@ -91,6 +91,38 @@ namespace WF
             this.viewStatusStrip.TabIndex = 1;
             this.viewStatusStrip.Text = "viewStatusStrip";
             // 
+            // songListView
+            // 
+            this.songListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Title,
+            this.Author,
+            this.Date,
+            this.Genre});
+            this.songListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.songListView.HideSelection = false;
+            this.songListView.Location = new System.Drawing.Point(0, 0);
+            this.songListView.Name = "songListView";
+            this.songListView.Size = new System.Drawing.Size(464, 287);
+            this.songListView.TabIndex = 0;
+            this.songListView.UseCompatibleStateImageBehavior = false;
+            this.songListView.View = System.Windows.Forms.View.Details;
+            // 
+            // Title
+            // 
+            this.Title.Text = "Title";
+            // 
+            // Author
+            // 
+            this.Author.Text = "Author";
+            // 
+            // Date
+            // 
+            this.Date.Text = "Date";
+            // 
+            // Genre
+            // 
+            this.Genre.Text = "Genre";
+            // 
             // viewMenuStrip
             // 
             this.viewMenuStrip.Dock = System.Windows.Forms.DockStyle.None;
@@ -99,7 +131,7 @@ namespace WF
             this.addToolStripMenuItem});
             this.viewMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.viewMenuStrip.Name = "viewMenuStrip";
-            this.viewMenuStrip.Size = new System.Drawing.Size(464, 30);
+            this.viewMenuStrip.Size = new System.Drawing.Size(464, 24);
             this.viewMenuStrip.TabIndex = 0;
             this.viewMenuStrip.Text = "viewMenuStrip";
             // 
@@ -184,38 +216,6 @@ namespace WF
             this.deleteToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
             this.deleteToolStripMenuItem.Text = "Delete";
             // 
-            // songListView
-            // 
-            this.songListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Title,
-            this.Author,
-            this.Date,
-            this.Genre});
-            this.songListView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.songListView.HideSelection = false;
-            this.songListView.Location = new System.Drawing.Point(0, 0);
-            this.songListView.Name = "songListView";
-            this.songListView.Size = new System.Drawing.Size(464, 281);
-            this.songListView.TabIndex = 0;
-            this.songListView.UseCompatibleStateImageBehavior = false;
-            this.songListView.View = System.Windows.Forms.View.Details;
-            // 
-            // Title
-            // 
-            this.Title.Text = "Title";
-            // 
-            // Author
-            // 
-            this.Author.Text = "Author";
-            // 
-            // Date
-            // 
-            this.Date.Text = "Date";
-            // 
-            // Genre
-            // 
-            this.Genre.Text = "Genre";
-            // 
             // View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -227,6 +227,7 @@ namespace WF
             this.Text = "View";
             this.Activated += new System.EventHandler(this.View_Activated);
             this.Deactivate += new System.EventHandler(this.View_Deactivate);
+            this.Load += new System.EventHandler(this.View_Load);
             this.toolStripContainer1.BottomToolStripPanel.ResumeLayout(false);
             this.toolStripContainer1.BottomToolStripPanel.PerformLayout();
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);

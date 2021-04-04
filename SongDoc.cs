@@ -17,12 +17,12 @@ namespace WF
         public void AddSong (Song newSong)
         {
             songList_.Add(newSong);
-            songAddedEv.Invoke(newSong);
+            songAddedEv?.Invoke(newSong);
         }
 
         public void UpdateSong (Song editSong)
         { 
-            songUpdatedEv.Invoke(editSong);
+            songUpdatedEv?.Invoke(editSong);
         }
 
         public void DeleteSong (Song editSong)
