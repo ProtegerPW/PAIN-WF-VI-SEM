@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace WF
 {
     /*public class GenreEditor : System.Drawing.Design.UITypeEditor
@@ -28,7 +29,14 @@ namespace WF
             Rock
         }
 
+        //store data about choosen genre    
         private genreBase genre;
+        private List<String> genreImages = new List<String>(new string[]
+        {
+            "D:\\Programowanie\\Visual\\WF\\WF\\Properties\\Disque.png",
+            "D:\\Programowanie\\Visual\\WF\\WF\\Properties\\logo2.png",
+            "D:\\Programowanie\\Visual\\WF\\WF\\Properties\\logo3.png"
+        });
 
         public GenreControl()
         {
@@ -37,18 +45,29 @@ namespace WF
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            /*Image image = Image.FromFile("Disque.png");*/
-    
-
+            int index = (int)genre;
+            if (index == Enum.GetNames(typeof(genreBase)).Length - 1)
+            {
+                index = 0;
+                genre = (genreBase)index;
+            } else
+            {
+                index++;
+                genre = (genreBase)index;
+            }
+            Image image = Image.FromFile(genreImages[index]);
+            pictureBox1.Image = image;
+            pictureBox1.Invalidate();
         }
 
         private void GenreControl_Load(object sender, EventArgs e)
         {
-            Image image = Image.FromFile("D:\\Programowanie\\Visual\\WF\\WF\\Properties\\Disque.png");
+            genre = (genreBase)0;
+            Image image = Image.FromFile(genreImages[0]);
             pictureBox1.Image = image;
             pictureBox1.Height = image.Height;
             pictureBox1.Width = image.Width;
-
+            
         }
     }
 }
