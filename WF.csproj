@@ -52,6 +52,12 @@
     <Compile Include="AddForm.Designer.cs">
       <DependentUpon>AddForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GenreControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GenreControl.Designer.cs">
+      <DependentUpon>GenreControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,9 @@
     </Compile>
     <EmbeddedResource Include="AddForm.resx">
       <DependentUpon>AddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GenreControl.resx">
+      <DependentUpon>GenreControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Model.resx">
       <DependentUpon>Model.cs</DependentUpon>
@@ -98,6 +107,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Properties\Disque.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

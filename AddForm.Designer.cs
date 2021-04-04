@@ -47,6 +47,7 @@ namespace WF
             this.cancelButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.addFormErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.genreControl1 = new WF.GenreControl();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -109,6 +110,7 @@ namespace WF
             this.tableLayoutPanel2.Controls.Add(this.composerTextBox, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.genreComboBox, 1, 3);
             this.tableLayoutPanel2.Controls.Add(this.recordingDate, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.genreControl1, 1, 4);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -252,6 +254,14 @@ namespace WF
             // 
             this.addFormErrorProvider.ContainerControl = this;
             // 
+            // genreControl1
+            // 
+            this.genreControl1.Genre = WF.GenreControl.genreBase.Pop;
+            this.genreControl1.Location = new System.Drawing.Point(114, 117);
+            this.genreControl1.Name = "genreControl1";
+            this.genreControl1.Size = new System.Drawing.Size(150, 43);
+            this.genreControl1.TabIndex = 9;
+            // 
             // AddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -295,5 +305,6 @@ namespace WF
         private System.Windows.Forms.ComboBox genreComboBox;
         private System.Windows.Forms.DateTimePicker recordingDate;
         private System.Windows.Forms.ErrorProvider addFormErrorProvider;
+        private GenreControl genreControl1;
     }
 }
