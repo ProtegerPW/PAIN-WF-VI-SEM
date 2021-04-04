@@ -64,10 +64,7 @@ namespace WF
         {
             genre = (genreBase)0;
             Image image = Image.FromFile(genreImages[0]);
-            pictureBox1.Image = image;
-            pictureBox1.Height = image.Height;
-            pictureBox1.Width = image.Width;
-            
+            pictureBox1.Image = image;           
         }
     }
 }

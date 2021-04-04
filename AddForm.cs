@@ -38,7 +38,8 @@ namespace WF
 
         public string SongGenre
         {
-            get { return genreComboBox.Text;  }
+            get { return Enum.GetName(typeof(GenreControl.genreBase), genreControl.Genre); }
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

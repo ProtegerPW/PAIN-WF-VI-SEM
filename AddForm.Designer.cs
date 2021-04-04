@@ -40,14 +40,13 @@ namespace WF
             this.label4 = new System.Windows.Forms.Label();
             this.titleTextBox = new System.Windows.Forms.TextBox();
             this.composerTextBox = new System.Windows.Forms.TextBox();
-            this.genreComboBox = new System.Windows.Forms.ComboBox();
             this.recordingDate = new System.Windows.Forms.DateTimePicker();
+            this.genreControl = new WF.GenreControl();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.okButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.addFormErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.genreControl1 = new WF.GenreControl();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -108,9 +107,8 @@ namespace WF
             this.tableLayoutPanel2.Controls.Add(this.label4, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.titleTextBox, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.composerTextBox, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.genreComboBox, 1, 3);
             this.tableLayoutPanel2.Controls.Add(this.recordingDate, 1, 2);
-            this.tableLayoutPanel2.Controls.Add(this.genreControl1, 1, 4);
+            this.tableLayoutPanel2.Controls.Add(this.genreControl, 1, 3);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -180,16 +178,6 @@ namespace WF
             this.composerTextBox.Size = new System.Drawing.Size(200, 22);
             this.composerTextBox.TabIndex = 5;
             // 
-            // genreComboBox
-            // 
-            this.genreComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.genreComboBox.FormattingEnabled = true;
-            this.genreComboBox.Location = new System.Drawing.Point(114, 87);
-            this.genreComboBox.Margin = new System.Windows.Forms.Padding(3, 3, 40, 3);
-            this.genreComboBox.Name = "genreComboBox";
-            this.genreComboBox.Size = new System.Drawing.Size(200, 24);
-            this.genreComboBox.TabIndex = 7;
-            // 
             // recordingDate
             // 
             this.recordingDate.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -199,6 +187,14 @@ namespace WF
             this.recordingDate.Size = new System.Drawing.Size(200, 22);
             this.recordingDate.TabIndex = 8;
             this.recordingDate.Value = new System.DateTime(2021, 4, 2, 0, 0, 0, 0);
+            // 
+            // genreControl
+            // 
+            this.genreControl.Genre = WF.GenreControl.genreBase.Pop;
+            this.genreControl.Location = new System.Drawing.Point(114, 87);
+            this.genreControl.Name = "genreControl";
+            this.genreControl.Size = new System.Drawing.Size(90, 20);
+            this.genreControl.TabIndex = 9;
             // 
             // tableLayoutPanel1
             // 
@@ -254,14 +250,6 @@ namespace WF
             // 
             this.addFormErrorProvider.ContainerControl = this;
             // 
-            // genreControl1
-            // 
-            this.genreControl1.Genre = WF.GenreControl.genreBase.Pop;
-            this.genreControl1.Location = new System.Drawing.Point(114, 117);
-            this.genreControl1.Name = "genreControl1";
-            this.genreControl1.Size = new System.Drawing.Size(150, 43);
-            this.genreControl1.TabIndex = 9;
-            // 
             // AddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -302,9 +290,8 @@ namespace WF
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.Button cancelButton;
-        private System.Windows.Forms.ComboBox genreComboBox;
         private System.Windows.Forms.DateTimePicker recordingDate;
         private System.Windows.Forms.ErrorProvider addFormErrorProvider;
-        private GenreControl genreControl1;
+        private GenreControl genreControl;
     }
 }
