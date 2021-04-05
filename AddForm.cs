@@ -79,5 +79,16 @@ namespace WF
         {
             addFormErrorProvider.SetError(titleTextBox, "");
         }
+
+        private void AddForm_Load(object sender, EventArgs e)
+        {
+            if(song_ != null)
+            {
+                titleTextBox.Text = song_.Title;
+                composerTextBox.Text = song_.Author;
+                recordingDate.Value = song_.Production;
+                genreControl.Genre = (GenreControl.genreBase) Enum.Parse(typeof(GenreControl.genreBase), song_.Genre, true);
+            }
+        }
     }
 }

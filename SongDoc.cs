@@ -8,7 +8,7 @@ namespace WF
 {
     public class SongDoc
     {
-        public List<Song> songList_ { get; set;} = new List<Song>();
+        public List<Song> songList_ = new List<Song>();
 
         public event Action<Song> songAddedEv;
         public event Action<Song> songUpdatedEv;
@@ -28,7 +28,7 @@ namespace WF
         public void DeleteSong (Song editSong)
         {
             songList_.Remove(editSong);
-            songDeletedEv.Invoke(editSong);
+            songDeletedEv?.Invoke(editSong);
         }
     }
 }

@@ -44,7 +44,7 @@ namespace WF
             this.AddSong = new System.Windows.Forms.ToolStripButton();
             this.EditSong = new System.Windows.Forms.ToolStripButton();
             this.DeleteSong = new System.Windows.Forms.ToolStripButton();
-            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
+            this.filterComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.viewContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,7 +68,7 @@ namespace WF
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.songListView);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(464, 287);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(464, 259);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
@@ -102,7 +102,7 @@ namespace WF
             this.songListView.HideSelection = false;
             this.songListView.Location = new System.Drawing.Point(0, 0);
             this.songListView.Name = "songListView";
-            this.songListView.Size = new System.Drawing.Size(464, 287);
+            this.songListView.Size = new System.Drawing.Size(464, 259);
             this.songListView.TabIndex = 0;
             this.songListView.UseCompatibleStateImageBehavior = false;
             this.songListView.View = System.Windows.Forms.View.Details;
@@ -129,7 +129,7 @@ namespace WF
             this.viewMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.viewMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addToolStripMenuItem});
-            this.viewMenuStrip.Location = new System.Drawing.Point(0, 0);
+            this.viewMenuStrip.Location = new System.Drawing.Point(0, 28);
             this.viewMenuStrip.Name = "viewMenuStrip";
             this.viewMenuStrip.Size = new System.Drawing.Size(464, 24);
             this.viewMenuStrip.TabIndex = 0;
@@ -150,10 +150,10 @@ namespace WF
             this.AddSong,
             this.EditSong,
             this.DeleteSong,
-            this.toolStripComboBox1});
-            this.viewToolStrip.Location = new System.Drawing.Point(4, 30);
+            this.filterComboBox});
+            this.viewToolStrip.Location = new System.Drawing.Point(4, 0);
             this.viewToolStrip.Name = "viewToolStrip";
-            this.viewToolStrip.Size = new System.Drawing.Size(333, 28);
+            this.viewToolStrip.Size = new System.Drawing.Size(372, 28);
             this.viewToolStrip.TabIndex = 1;
             this.viewToolStrip.Text = "viewToolStrip";
             this.viewToolStrip.Visible = false;
@@ -182,11 +182,17 @@ namespace WF
             this.DeleteSong.Name = "DeleteSong";
             this.DeleteSong.Size = new System.Drawing.Size(77, 25);
             this.DeleteSong.Text = "Delete";
+            this.DeleteSong.Click += new System.EventHandler(this.DeleteSong_Click);
             // 
-            // toolStripComboBox1
+            // filterComboBox
             // 
-            this.toolStripComboBox1.Name = "toolStripComboBox1";
-            this.toolStripComboBox1.Size = new System.Drawing.Size(121, 28);
+            this.filterComboBox.Items.AddRange(new object[] {
+            "All",
+            "Before millennium",
+            "After millennium"});
+            this.filterComboBox.Name = "filterComboBox";
+            this.filterComboBox.Size = new System.Drawing.Size(121, 28);
+            this.filterComboBox.DropDownClosed += new System.EventHandler(this.filterComboBox_DropDownClosed);
             // 
             // viewContextMenuStrip
             // 
@@ -253,7 +259,7 @@ namespace WF
         private System.Windows.Forms.ToolStripButton AddSong;
         private System.Windows.Forms.ToolStripButton EditSong;
         private System.Windows.Forms.ToolStripButton DeleteSong;
-        private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
+        private System.Windows.Forms.ToolStripComboBox filterComboBox;
         private System.Windows.Forms.ContextMenuStrip viewContextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
