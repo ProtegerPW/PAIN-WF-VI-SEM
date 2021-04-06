@@ -33,18 +33,19 @@ namespace WF
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(View));
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.viewStatusStrip = new System.Windows.Forms.StatusStrip();
+            this.countItemsStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.songListView = new System.Windows.Forms.ListView();
             this.Title = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Author = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Genre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.viewMenuStrip = new System.Windows.Forms.MenuStrip();
-            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStrip = new System.Windows.Forms.ToolStrip();
             this.AddSong = new System.Windows.Forms.ToolStripButton();
             this.EditSong = new System.Windows.Forms.ToolStripButton();
             this.DeleteSong = new System.Windows.Forms.ToolStripButton();
             this.filterComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.viewMenuStrip = new System.Windows.Forms.MenuStrip();
+            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,8 +54,9 @@ namespace WF
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
-            this.viewMenuStrip.SuspendLayout();
+            this.viewStatusStrip.SuspendLayout();
             this.viewToolStrip.SuspendLayout();
+            this.viewMenuStrip.SuspendLayout();
             this.viewContextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,7 +70,7 @@ namespace WF
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.songListView);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(464, 259);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(464, 255);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
@@ -78,18 +80,26 @@ namespace WF
             // 
             // toolStripContainer1.TopToolStripPanel
             // 
-            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.viewMenuStrip);
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.viewToolStrip);
+            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.viewMenuStrip);
             // 
             // viewStatusStrip
             // 
             this.viewStatusStrip.Dock = System.Windows.Forms.DockStyle.None;
             this.viewStatusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.viewStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.countItemsStatusLabel});
             this.viewStatusStrip.Location = new System.Drawing.Point(0, 0);
             this.viewStatusStrip.Name = "viewStatusStrip";
-            this.viewStatusStrip.Size = new System.Drawing.Size(464, 22);
+            this.viewStatusStrip.Size = new System.Drawing.Size(464, 26);
             this.viewStatusStrip.TabIndex = 1;
             this.viewStatusStrip.Text = "viewStatusStrip";
+            // 
+            // countItemsStatusLabel
+            // 
+            this.countItemsStatusLabel.Name = "countItemsStatusLabel";
+            this.countItemsStatusLabel.Size = new System.Drawing.Size(151, 20);
+            this.countItemsStatusLabel.Text = "toolStripStatusLabel1";
             // 
             // songListView
             // 
@@ -102,7 +112,7 @@ namespace WF
             this.songListView.HideSelection = false;
             this.songListView.Location = new System.Drawing.Point(0, 0);
             this.songListView.Name = "songListView";
-            this.songListView.Size = new System.Drawing.Size(464, 259);
+            this.songListView.Size = new System.Drawing.Size(464, 255);
             this.songListView.TabIndex = 0;
             this.songListView.UseCompatibleStateImageBehavior = false;
             this.songListView.View = System.Windows.Forms.View.Details;
@@ -122,25 +132,6 @@ namespace WF
             // Genre
             // 
             this.Genre.Text = "Genre";
-            // 
-            // viewMenuStrip
-            // 
-            this.viewMenuStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.viewMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.viewMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addToolStripMenuItem});
-            this.viewMenuStrip.Location = new System.Drawing.Point(0, 28);
-            this.viewMenuStrip.Name = "viewMenuStrip";
-            this.viewMenuStrip.Size = new System.Drawing.Size(464, 24);
-            this.viewMenuStrip.TabIndex = 0;
-            this.viewMenuStrip.Text = "viewMenuStrip";
-            // 
-            // addToolStripMenuItem
-            // 
-            this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(49, 24);
-            this.addToolStripMenuItem.Text = "Edit";
-            this.addToolStripMenuItem.Visible = false;
             // 
             // viewToolStrip
             // 
@@ -174,6 +165,7 @@ namespace WF
             this.EditSong.Name = "EditSong";
             this.EditSong.Size = new System.Drawing.Size(59, 25);
             this.EditSong.Text = "Edit";
+            this.EditSong.Click += new System.EventHandler(this.EditSong_Click);
             // 
             // DeleteSong
             // 
@@ -193,6 +185,25 @@ namespace WF
             this.filterComboBox.Name = "filterComboBox";
             this.filterComboBox.Size = new System.Drawing.Size(121, 28);
             this.filterComboBox.DropDownClosed += new System.EventHandler(this.filterComboBox_DropDownClosed);
+            // 
+            // viewMenuStrip
+            // 
+            this.viewMenuStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.viewMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.viewMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addToolStripMenuItem});
+            this.viewMenuStrip.Location = new System.Drawing.Point(0, 28);
+            this.viewMenuStrip.Name = "viewMenuStrip";
+            this.viewMenuStrip.Size = new System.Drawing.Size(464, 24);
+            this.viewMenuStrip.TabIndex = 0;
+            this.viewMenuStrip.Text = "viewMenuStrip";
+            // 
+            // addToolStripMenuItem
+            // 
+            this.addToolStripMenuItem.Name = "addToolStripMenuItem";
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(49, 24);
+            this.addToolStripMenuItem.Text = "Edit";
+            this.addToolStripMenuItem.Visible = false;
             // 
             // viewContextMenuStrip
             // 
@@ -241,10 +252,12 @@ namespace WF
             this.toolStripContainer1.TopToolStripPanel.PerformLayout();
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();
-            this.viewMenuStrip.ResumeLayout(false);
-            this.viewMenuStrip.PerformLayout();
+            this.viewStatusStrip.ResumeLayout(false);
+            this.viewStatusStrip.PerformLayout();
             this.viewToolStrip.ResumeLayout(false);
             this.viewToolStrip.PerformLayout();
+            this.viewMenuStrip.ResumeLayout(false);
+            this.viewMenuStrip.PerformLayout();
             this.viewContextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -269,5 +282,6 @@ namespace WF
         private System.Windows.Forms.ColumnHeader Author;
         private System.Windows.Forms.ColumnHeader Date;
         private System.Windows.Forms.ColumnHeader Genre;
+        private System.Windows.Forms.ToolStripStatusLabel countItemsStatusLabel;
     }
 }

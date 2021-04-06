@@ -11,7 +11,7 @@ namespace WF
         public List<Song> songList_ = new List<Song>();
 
         public event Action<Song> songAddedEv;
-        public event Action<Song> songUpdatedEv;
+        public event Action<Song, Song> songUpdatedEv;
         public event Action<Song> songDeletedEv;
 
         public void AddSong (Song newSong)
@@ -20,9 +20,10 @@ namespace WF
             songAddedEv?.Invoke(newSong);
         }
 
-        public void UpdateSong (Song editSong)
-        { 
-            songUpdatedEv?.Invoke(editSong);
+        public void UpdateSong (Song oldSong, Song newSong)
+        {
+            songList_[songList_.IndexOf(oldSong)] = newSong;
+            songUpdatedEv?.Invoke(oldSong, newSong);
         }
 
         public void DeleteSong (Song editSong)

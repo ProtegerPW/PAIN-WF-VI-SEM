@@ -22,13 +22,15 @@ namespace WF
         private void View_Load(object sender, EventArgs e)
         {
             filterComboBox.SelectedIndex = 0;
+            EditSong.Enabled = false;
             UpdateItems();
+            CountItems();
             songViewDoc.songAddedEv += ViewDoc_AddSongEvent;
             songViewDoc.songUpdatedEv += ViewDoc_EditSongEvent;
             songViewDoc.songDeletedEv += ViewDoc_DeleteSongEvent; 
         }
 
-        private bool checkFilter (Song song)
+        private bool CheckFilter (Song song)
         {
             switch(filterComboBox.SelectedIndex)
             {
@@ -46,6 +48,52 @@ namespace WF
             }
         }
 
+        private void CountItems()
+        {
+            countItemsStatusLabel.Text = songListView.Items.Count.ToString();
+            UpdateControls();
+        }
+
+        private void UpdateControls()
+        {
+            if (Int32.Parse(countItemsStatusLabel.Text) > 0)
+            {
+                EditSong.Enabled = true;
+                DeleteSong.Enabled = true;
+            }
+            else
+            {
+                EditSong.Enabled = false;
+                DeleteSong.Enabled = false;
+            }
+        }
+
+        private void UpdateItem(ListViewItem item)
+        {
+            Song newSong = (Song)item.Tag;
+            while (item.SubItems.Count < 4)
+                item.SubItems.Add(new ListViewItem.ListViewSubItem());
+            item.SubItems[0].Text = newSong.Title;
+            item.SubItems[1].Text = newSong.Author;
+            item.SubItems[2].Text = newSong.Production.ToShortDateString();
+            item.SubItems[3].Text = newSong.Genre;
+        }
+
+        private void UpdateItems()
+        {
+            songListView.Items.Clear();
+            foreach (Song song in songViewDoc.songList_)
+            {
+                if (CheckFilter(song))
+                {
+                    ListViewItem item = new ListViewItem();
+                    item.Tag = song;
+                    songListView.Items.Add(item);
+                    UpdateItem(item);
+                }
+            }
+        }
+
         private void AddSong_Click(object sender, EventArgs e)
         {
             AddForm newSongForm = new AddForm(null, songViewDoc.songList_ );
@@ -60,49 +108,46 @@ namespace WF
             }
         }
 
-        private void UpdateItem (ListViewItem item)
-        {
-            Song newSong = (Song)item.Tag;
-            while (item.SubItems.Count < 4)
-                item.SubItems.Add(new ListViewItem.ListViewSubItem());
-            item.SubItems[0].Text = newSong.Title;
-            item.SubItems[1].Text = newSong.Author;
-            item.SubItems[2].Text = newSong.Production.ToShortDateString();
-            item.SubItems[3].Text = newSong.Genre;
-        }
-
-        private void UpdateItems()
-        {
-            songListView.Items.Clear();
-            foreach(Song song in songViewDoc.songList_)
-            {
-                if (checkFilter(song))
-                {
-                    ListViewItem item = new ListViewItem();
-                    item.Tag = song;
-                    UpdateItem(item);
-                    songListView.Items.Add(item);
-                }
-            }
-        }
-
-        
-
         private void ViewDoc_AddSongEvent(Song song)
         {
-            if(checkFilter(song))
+            if(CheckFilter(song))
             {
                 ListViewItem item = new ListViewItem();
                 item.Tag = song;
                 UpdateItem(item);
-                //add UpdateCounter();
                 songListView.Items.Add(item);
+                CountItems();
             }
             
         }
 
-        private void ViewDoc_EditSongEvent(Song song)
+        private void EditSong_Click(object sender, EventArgs e)
         {
+            Song song = (Song)songListView.SelectedItems[0].Tag;
+            AddForm editSongForm = new AddForm(song, songViewDoc.songList_);
+
+            if(editSongForm.ShowDialog() == DialogResult.OK)
+            {
+                Song newSong = new Song(editSongForm.SongTitle, editSongForm.SongAuthor, editSongForm.SongDate, editSongForm.SongGenre);
+                /*songListView.SelectedItems[0].SubItems[0].Text = newSong.Title;
+                songListView.SelectedItems[0].SubItems[1].Text = newSong.Author;
+                songListView.SelectedItems[0].SubItems[2].Text = newSong.Production.ToShortDateString();
+                songListView.SelectedItems[0].SubItems[3].Text = newSong.Genre;*/
+                songViewDoc.UpdateSong(song, newSong);
+            }
+        }
+
+        private void ViewDoc_EditSongEvent(Song oldSong, Song newSong)
+        {
+            foreach (ListViewItem item in songListView.Items)
+                if (ReferenceEquals(item.Tag, oldSong))
+                {
+                    item.SubItems[0].Text = newSong.Title;
+                    item.SubItems[1].Text = newSong.Author;
+                    item.SubItems[2].Text = newSong.Production.ToShortDateString();
+                    item.SubItems[3].Text = newSong.Genre;
+                    return;
+                }
 
         }
 
@@ -110,9 +155,9 @@ namespace WF
         {
             ListViewItem item = songListView.SelectedItems[0];
             songListView.Items.Remove(item);
+            CountItems();
             Song song = (Song)item.Tag;
             songViewDoc.DeleteSong(song);
-            //add UpdateCounter();
             songViewDoc.songDeletedEv += ViewDoc_DeleteSongEvent;
         }
 
@@ -122,7 +167,7 @@ namespace WF
                 if (ReferenceEquals(item.Tag, song))
                 {
                     songListView.Items.Remove(item);
-                    //add UpdateCounter();
+                    CountItems();
                     return;
                 }
 
@@ -143,6 +188,7 @@ namespace WF
         private void filterComboBox_DropDownClosed(object sender, EventArgs e)
         {
             UpdateItems();
+            CountItems();
         }
     }
 }
