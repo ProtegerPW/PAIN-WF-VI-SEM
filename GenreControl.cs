@@ -25,7 +25,7 @@ namespace WF
         public enum genreBase
         {
             Pop,
-            Jazz,
+            Rap,
             Rock
         }
 
@@ -33,9 +33,9 @@ namespace WF
         private genreBase genre;
         public List<String> genreImages = new List<String>(new string[]
         {
-            "D:\\Programowanie\\Visual\\WF\\WF\\Properties\\Disque.png",
-            "D:\\Programowanie\\Visual\\WF\\WF\\Properties\\logo2.png",
-            "D:\\Programowanie\\Visual\\WF\\WF\\Properties\\logo3.png"
+            "D:\\Programowanie\\Visual\\WF\\WF\\Properties\\logo1_.png",
+            "D:\\Programowanie\\Visual\\WF\\WF\\Properties\\logo2_.png",
+            "D:\\Programowanie\\Visual\\WF\\WF\\Properties\\logo3_.png"
         });
 
         public GenreControl()

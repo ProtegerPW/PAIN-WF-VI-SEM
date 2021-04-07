@@ -41,12 +41,12 @@ namespace WF
             this.titleTextBox = new System.Windows.Forms.TextBox();
             this.composerTextBox = new System.Windows.Forms.TextBox();
             this.recordingDate = new System.Windows.Forms.DateTimePicker();
-            this.genreControl = new WF.GenreControl();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.okButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.addFormErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.genreControl = new WF.GenreControl();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -116,8 +116,8 @@ namespace WF
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(351, 163);
             this.tableLayoutPanel2.TabIndex = 0;
             this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
@@ -188,14 +188,6 @@ namespace WF
             this.recordingDate.TabIndex = 8;
             this.recordingDate.Value = new System.DateTime(2021, 4, 2, 0, 0, 0, 0);
             // 
-            // genreControl
-            // 
-            this.genreControl.Genre = WF.GenreControl.genreBase.Pop;
-            this.genreControl.Location = new System.Drawing.Point(114, 87);
-            this.genreControl.Name = "genreControl";
-            this.genreControl.Size = new System.Drawing.Size(90, 20);
-            this.genreControl.TabIndex = 9;
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 5;
@@ -249,6 +241,15 @@ namespace WF
             // addFormErrorProvider
             // 
             this.addFormErrorProvider.ContainerControl = this;
+            // 
+            // genreControl
+            // 
+            this.genreControl.Dock = System.Windows.Forms.DockStyle.Left;
+            this.genreControl.Genre = WF.GenreControl.genreBase.Pop;
+            this.genreControl.Location = new System.Drawing.Point(114, 87);
+            this.genreControl.Name = "genreControl";
+            this.genreControl.Size = new System.Drawing.Size(90, 20);
+            this.genreControl.TabIndex = 9;
             // 
             // AddForm
             // 
