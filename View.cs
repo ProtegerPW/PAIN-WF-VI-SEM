@@ -193,5 +193,17 @@ namespace WF
             UpdateItems();
             CountItems();
         }
+
+        private void View_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MdiParent.MdiChildren.Count() == 1)
+            {
+                e.Cancel = true;
+            } else
+            {
+                e.Cancel = false;
+            }
+            
+        }
     }
 }

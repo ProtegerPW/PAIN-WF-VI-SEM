@@ -87,8 +87,13 @@ namespace WF
                 titleTextBox.Text = song_.Title;
                 composerTextBox.Text = song_.Author;
                 recordingDate.Value = song_.Production;
-                genreControl.Genre = (GenreControl.genreBase) Enum.Parse(typeof(GenreControl.genreBase), song_.Genre, true);
+                genreControl.Genre = (GenreControl.genreBase)Enum.Parse(typeof(GenreControl.genreBase), song_.Genre, true);
             }
+        }
+
+        private void genreControl_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

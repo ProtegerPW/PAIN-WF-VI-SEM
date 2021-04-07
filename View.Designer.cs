@@ -70,7 +70,7 @@ namespace WF
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.songListView);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(464, 283);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(464, 277);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
@@ -112,7 +112,7 @@ namespace WF
             this.songListView.HideSelection = false;
             this.songListView.Location = new System.Drawing.Point(0, 0);
             this.songListView.Name = "songListView";
-            this.songListView.Size = new System.Drawing.Size(464, 283);
+            this.songListView.Size = new System.Drawing.Size(464, 277);
             this.songListView.TabIndex = 0;
             this.songListView.UseCompatibleStateImageBehavior = false;
             this.songListView.View = System.Windows.Forms.View.Details;
@@ -244,6 +244,7 @@ namespace WF
             this.Text = "View";
             this.Activated += new System.EventHandler(this.View_Activated);
             this.Deactivate += new System.EventHandler(this.View_Deactivate);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.View_FormClosing);
             this.Load += new System.EventHandler(this.View_Load);
             this.toolStripContainer1.BottomToolStripPanel.ResumeLayout(false);
             this.toolStripContainer1.BottomToolStripPanel.PerformLayout();

@@ -13,6 +13,7 @@ namespace WF
     public partial class Model : Form
     {
         private SongDoc document = new SongDoc();
+        private int numOfChildren = 0;
         public Model()
         {
             InitializeComponent();
@@ -23,10 +24,16 @@ namespace WF
             View songView = new View(document);
             songView.MdiParent = this;
             songView.Show();
+            numOfChildren++;
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
+            foreach(Form child in this.MdiChildren)
+            {
+                child.Dispose();
+                child.Close();
+            }
             Application.Exit();
         }
     }
