@@ -123,6 +123,8 @@ namespace WF
 
         private void EditSong_Click(object sender, EventArgs e)
         {
+            if (songListView.SelectedItems.Count == 0)
+                return;
             Song song = (Song)songListView.SelectedItems[0].Tag;
             AddForm editSongForm = new AddForm(song, songViewDoc.songList_);
 
@@ -146,6 +148,7 @@ namespace WF
                     item.SubItems[1].Text = newSong.Author;
                     item.SubItems[2].Text = newSong.Production.ToShortDateString();
                     item.SubItems[3].Text = newSong.Genre;
+                    item.Tag = newSong;
                     return;
                 }
 

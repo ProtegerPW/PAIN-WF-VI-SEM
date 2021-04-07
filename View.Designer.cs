@@ -70,7 +70,7 @@ namespace WF
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.songListView);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(464, 255);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(464, 283);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
@@ -80,8 +80,8 @@ namespace WF
             // 
             // toolStripContainer1.TopToolStripPanel
             // 
-            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.viewToolStrip);
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.viewMenuStrip);
+            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.viewToolStrip);
             // 
             // viewStatusStrip
             // 
@@ -112,7 +112,7 @@ namespace WF
             this.songListView.HideSelection = false;
             this.songListView.Location = new System.Drawing.Point(0, 0);
             this.songListView.Name = "songListView";
-            this.songListView.Size = new System.Drawing.Size(464, 255);
+            this.songListView.Size = new System.Drawing.Size(464, 283);
             this.songListView.TabIndex = 0;
             this.songListView.UseCompatibleStateImageBehavior = false;
             this.songListView.View = System.Windows.Forms.View.Details;
@@ -144,7 +144,7 @@ namespace WF
             this.filterComboBox});
             this.viewToolStrip.Location = new System.Drawing.Point(4, 0);
             this.viewToolStrip.Name = "viewToolStrip";
-            this.viewToolStrip.Size = new System.Drawing.Size(372, 28);
+            this.viewToolStrip.Size = new System.Drawing.Size(333, 28);
             this.viewToolStrip.TabIndex = 1;
             this.viewToolStrip.Text = "viewToolStrip";
             this.viewToolStrip.Visible = false;
@@ -192,7 +192,7 @@ namespace WF
             this.viewMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.viewMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addToolStripMenuItem});
-            this.viewMenuStrip.Location = new System.Drawing.Point(0, 28);
+            this.viewMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.viewMenuStrip.Name = "viewMenuStrip";
             this.viewMenuStrip.Size = new System.Drawing.Size(464, 24);
             this.viewMenuStrip.TabIndex = 0;
