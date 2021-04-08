@@ -67,14 +67,14 @@ namespace WF
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(122, 26);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(122, 26);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -135,6 +135,7 @@ namespace WF
             this.MainMenuStrip = this.modelMenuStrip;
             this.Name = "Model";
             this.Text = "Model";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Model_FormClosing);
             this.modelMenuStrip.ResumeLayout(false);
             this.modelMenuStrip.PerformLayout();
             this.modelToolStrip.ResumeLayout(false);

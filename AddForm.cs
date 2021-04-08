@@ -40,19 +40,9 @@ namespace WF
         {
             get { return Enum.GetName(typeof(GenreControl.genreBase), genreControl.Genre); }
 
-        }
+        }       
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void okButton_Click(object sender, EventArgs e)
+        private void OkButton_Click(object sender, EventArgs e)
         {
             if (ValidateChildren())
             {
@@ -60,12 +50,12 @@ namespace WF
             }
         }
 
-        private void cancelButton_Click(object sender, EventArgs e)
+        private void CancelButton_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
         }
 
-        private void titleTextBox_Validating(object sender, CancelEventArgs e)
+        private void TitleTextBox_Validating(object sender, CancelEventArgs e)
         {
             if (!titleTextBox.Text.All(Char.IsLetterOrDigit))
             {
@@ -75,7 +65,7 @@ namespace WF
             
         }
 
-        private void titleTextBox_Validated(object sender, EventArgs e)
+        private void TitleTextBox_Validated(object sender, EventArgs e)
         {
             addFormErrorProvider.SetError(titleTextBox, "");
         }
@@ -91,9 +81,9 @@ namespace WF
             }
         }
 
-        private void genreControl_Load(object sender, EventArgs e)
+        private void AddForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            e.Cancel = false;
         }
     }
 }

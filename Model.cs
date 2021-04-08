@@ -53,5 +53,10 @@ namespace WF
         {
             ExitProgramFunction();
         }
+
+        private void Model_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = false;
+        }
     }
 }

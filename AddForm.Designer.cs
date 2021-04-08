@@ -91,6 +91,7 @@ namespace WF
             // 
             // splitContainer2.Panel2
             // 
+            this.splitContainer2.Panel2.CausesValidation = false;
             this.splitContainer2.Panel2.Controls.Add(this.tableLayoutPanel1);
             this.splitContainer2.Size = new System.Drawing.Size(351, 200);
             this.splitContainer2.SplitterDistance = 163;
@@ -120,7 +121,6 @@ namespace WF
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(351, 163);
             this.tableLayoutPanel2.TabIndex = 0;
-            this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
             // 
             // label1
             // 
@@ -166,8 +166,8 @@ namespace WF
             this.titleTextBox.Name = "titleTextBox";
             this.titleTextBox.Size = new System.Drawing.Size(200, 22);
             this.titleTextBox.TabIndex = 4;
-            this.titleTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.titleTextBox_Validating);
-            this.titleTextBox.Validated += new System.EventHandler(this.titleTextBox_Validated);
+            this.titleTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.TitleTextBox_Validating);
+            this.titleTextBox.Validated += new System.EventHandler(this.TitleTextBox_Validated);
             // 
             // composerTextBox
             // 
@@ -190,6 +190,7 @@ namespace WF
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.CausesValidation = false;
             this.tableLayoutPanel1.ColumnCount = 5;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
@@ -208,23 +209,26 @@ namespace WF
             // 
             // okButton
             // 
+            this.okButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.okButton.Location = new System.Drawing.Point(66, 3);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(74, 27);
             this.okButton.TabIndex = 0;
             this.okButton.Text = "Ok";
             this.okButton.UseVisualStyleBackColor = true;
-            this.okButton.Click += new System.EventHandler(this.okButton_Click);
+            this.okButton.Click += new System.EventHandler(this.OkButton_Click);
             // 
             // cancelButton
             // 
+            this.cancelButton.CausesValidation = false;
+            this.cancelButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cancelButton.Location = new System.Drawing.Point(209, 3);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(74, 27);
             this.cancelButton.TabIndex = 1;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
-            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // pictureBox1
             // 
@@ -236,7 +240,6 @@ namespace WF
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // addFormErrorProvider
             // 
@@ -259,6 +262,7 @@ namespace WF
             this.Controls.Add(this.splitContainer1);
             this.Name = "AddForm";
             this.Text = "AddForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddForm_FormClosing);
             this.Load += new System.EventHandler(this.AddForm_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
