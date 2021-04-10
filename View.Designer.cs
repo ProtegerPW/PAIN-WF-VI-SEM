@@ -39,16 +39,16 @@ namespace WF
             this.Author = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Genre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.viewToolStrip = new System.Windows.Forms.ToolStrip();
-            this.AddSong = new System.Windows.Forms.ToolStripButton();
-            this.EditSong = new System.Windows.Forms.ToolStripButton();
-            this.DeleteSong = new System.Windows.Forms.ToolStripButton();
-            this.filterComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.viewMenuStrip = new System.Windows.Forms.MenuStrip();
             this.editMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.AddSongMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.EditSongMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.DeleteSongMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewToolStrip = new System.Windows.Forms.ToolStrip();
+            this.AddSong = new System.Windows.Forms.ToolStripButton();
+            this.EditSong = new System.Windows.Forms.ToolStripButton();
+            this.DeleteSong = new System.Windows.Forms.ToolStripButton();
+            this.filterComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.viewContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.AddContextMenuStip = new System.Windows.Forms.ToolStripMenuItem();
             this.EditContextMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,8 +58,8 @@ namespace WF
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this.viewStatusStrip.SuspendLayout();
-            this.viewToolStrip.SuspendLayout();
             this.viewMenuStrip.SuspendLayout();
+            this.viewToolStrip.SuspendLayout();
             this.viewContextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -131,10 +131,55 @@ namespace WF
             // Date
             // 
             this.Date.Text = "Date";
+            this.Date.Width = 87;
             // 
             // Genre
             // 
             this.Genre.Text = "Genre";
+            // 
+            // viewMenuStrip
+            // 
+            this.viewMenuStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.viewMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.viewMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editMenuStrip});
+            this.viewMenuStrip.Location = new System.Drawing.Point(0, 0);
+            this.viewMenuStrip.Name = "viewMenuStrip";
+            this.viewMenuStrip.Size = new System.Drawing.Size(65, 28);
+            this.viewMenuStrip.TabIndex = 0;
+            this.viewMenuStrip.Text = "viewMenuStrip";
+            this.viewMenuStrip.Visible = false;
+            // 
+            // editMenuStrip
+            // 
+            this.editMenuStrip.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AddSongMenuStrip,
+            this.EditSongMenuStrip,
+            this.DeleteSongMenuStrip});
+            this.editMenuStrip.Name = "editMenuStrip";
+            this.editMenuStrip.Size = new System.Drawing.Size(57, 24);
+            this.editMenuStrip.Text = "Song";
+            // 
+            // AddSongMenuStrip
+            // 
+            this.AddSongMenuStrip.Name = "AddSongMenuStrip";
+            this.AddSongMenuStrip.Size = new System.Drawing.Size(136, 26);
+            this.AddSongMenuStrip.Text = "Add";
+            this.AddSongMenuStrip.Click += new System.EventHandler(this.AddSongMenuStrip_Click);
+            // 
+            // EditSongMenuStrip
+            // 
+            this.EditSongMenuStrip.Name = "EditSongMenuStrip";
+            this.EditSongMenuStrip.Size = new System.Drawing.Size(136, 26);
+            this.EditSongMenuStrip.Text = "Edit";
+            this.EditSongMenuStrip.Click += new System.EventHandler(this.EditSongMenuStrip_Click);
+            // 
+            // DeleteSongMenuStrip
+            // 
+            this.DeleteSongMenuStrip.Name = "DeleteSongMenuStrip";
+            this.DeleteSongMenuStrip.Size = new System.Drawing.Size(136, 26);
+            this.DeleteSongMenuStrip.Text = "Delete";
+            this.DeleteSongMenuStrip.Click += new System.EventHandler(this.DeleteSongMenuStrip_Click);
             // 
             // viewToolStrip
             // 
@@ -189,50 +234,6 @@ namespace WF
             this.filterComboBox.Size = new System.Drawing.Size(121, 28);
             this.filterComboBox.DropDownClosed += new System.EventHandler(this.filterComboBox_DropDownClosed);
             // 
-            // viewMenuStrip
-            // 
-            this.viewMenuStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.viewMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.viewMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editMenuStrip});
-            this.viewMenuStrip.Location = new System.Drawing.Point(0, 0);
-            this.viewMenuStrip.Name = "viewMenuStrip";
-            this.viewMenuStrip.Size = new System.Drawing.Size(464, 28);
-            this.viewMenuStrip.TabIndex = 0;
-            this.viewMenuStrip.Text = "viewMenuStrip";
-            this.viewMenuStrip.Visible = false;
-            // 
-            // editMenuStrip
-            // 
-            this.editMenuStrip.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.AddSongMenuStrip,
-            this.EditSongMenuStrip,
-            this.DeleteSongMenuStrip});
-            this.editMenuStrip.Name = "editMenuStrip";
-            this.editMenuStrip.Size = new System.Drawing.Size(57, 24);
-            this.editMenuStrip.Text = "Song";
-            // 
-            // AddSongMenuStrip
-            // 
-            this.AddSongMenuStrip.Name = "AddSongMenuStrip";
-            this.AddSongMenuStrip.Size = new System.Drawing.Size(224, 26);
-            this.AddSongMenuStrip.Text = "Add";
-            this.AddSongMenuStrip.Click += new System.EventHandler(this.AddSongMenuStrip_Click);
-            // 
-            // EditSongMenuStrip
-            // 
-            this.EditSongMenuStrip.Name = "EditSongMenuStrip";
-            this.EditSongMenuStrip.Size = new System.Drawing.Size(224, 26);
-            this.EditSongMenuStrip.Text = "Edit";
-            this.EditSongMenuStrip.Click += new System.EventHandler(this.EditSongMenuStrip_Click);
-            // 
-            // DeleteSongMenuStrip
-            // 
-            this.DeleteSongMenuStrip.Name = "DeleteSongMenuStrip";
-            this.DeleteSongMenuStrip.Size = new System.Drawing.Size(224, 26);
-            this.DeleteSongMenuStrip.Text = "Delete";
-            this.DeleteSongMenuStrip.Click += new System.EventHandler(this.DeleteSongMenuStrip_Click);
-            // 
             // viewContextMenuStrip
             // 
             this.viewContextMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -241,26 +242,26 @@ namespace WF
             this.EditContextMenuStrip,
             this.DeleteContextMenuStrip});
             this.viewContextMenuStrip.Name = "viewContextMenuStrip";
-            this.viewContextMenuStrip.Size = new System.Drawing.Size(211, 104);
+            this.viewContextMenuStrip.Size = new System.Drawing.Size(123, 76);
             // 
             // AddContextMenuStip
             // 
             this.AddContextMenuStip.Name = "AddContextMenuStip";
-            this.AddContextMenuStip.Size = new System.Drawing.Size(210, 24);
+            this.AddContextMenuStip.Size = new System.Drawing.Size(122, 24);
             this.AddContextMenuStip.Text = "Add";
             this.AddContextMenuStip.Click += new System.EventHandler(this.AddContextMenuStip_Click);
             // 
             // EditContextMenuStrip
             // 
             this.EditContextMenuStrip.Name = "EditContextMenuStrip";
-            this.EditContextMenuStrip.Size = new System.Drawing.Size(210, 24);
+            this.EditContextMenuStrip.Size = new System.Drawing.Size(122, 24);
             this.EditContextMenuStrip.Text = "Edit";
             this.EditContextMenuStrip.Click += new System.EventHandler(this.EditContextMenuStrip_Click);
             // 
             // DeleteContextMenuStrip
             // 
             this.DeleteContextMenuStrip.Name = "DeleteContextMenuStrip";
-            this.DeleteContextMenuStrip.Size = new System.Drawing.Size(210, 24);
+            this.DeleteContextMenuStrip.Size = new System.Drawing.Size(122, 24);
             this.DeleteContextMenuStrip.Text = "Delete";
             this.DeleteContextMenuStrip.Click += new System.EventHandler(this.DeleteContextMenuStrip_Click);
             // 
@@ -287,10 +288,10 @@ namespace WF
             this.toolStripContainer1.PerformLayout();
             this.viewStatusStrip.ResumeLayout(false);
             this.viewStatusStrip.PerformLayout();
-            this.viewToolStrip.ResumeLayout(false);
-            this.viewToolStrip.PerformLayout();
             this.viewMenuStrip.ResumeLayout(false);
             this.viewMenuStrip.PerformLayout();
+            this.viewToolStrip.ResumeLayout(false);
+            this.viewToolStrip.PerformLayout();
             this.viewContextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
