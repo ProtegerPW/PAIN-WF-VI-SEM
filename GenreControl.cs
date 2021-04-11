@@ -32,13 +32,12 @@ namespace WF
             set { genre = value; }
         }
 
-        public List<String> genreImages = new List<String>(new string[]
+        public List<Image> genreImages = new List<Image>()
         {
-            "D:\\Programowanie\\Visual\\WF\\WF\\Properties\\logo1_.png",
-            "D:\\Programowanie\\Visual\\WF\\WF\\Properties\\logo2_.png",
-            "D:\\Programowanie\\Visual\\WF\\WF\\Properties\\logo3_.png"
-        });
-        
+            global::WF.Properties.Resources.logo1,
+            global::WF.Properties.Resources.logo2,
+            global::WF.Properties.Resources.logo3
+        };        
 
         public GenreControl()
         {
@@ -49,6 +48,7 @@ namespace WF
         {
             this.Genre = genre;
         }
+
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -62,7 +62,7 @@ namespace WF
                 index++;
                 genre = (genreBase)index;
             }
-            Image image = Image.FromFile(genreImages[index]);
+            Image image = genreImages[index];
             pictureBox1.Image = image;
             pictureBox1.Invalidate();
         }
@@ -70,9 +70,19 @@ namespace WF
         private void GenreControl_Load(object sender, EventArgs e)
         {
             int index = (int)Genre;
-            Image image = Image.FromFile(genreImages[index]);
+            Image image = genreImages[index];
             pictureBox1.Image = image;
             pictureBox1.Invalidate();
+        }
+    }
+
+    public class GenreChangedEventArgs : EventArgs
+    {
+        public GenreControl.genreBase NewValue { get; set; }
+
+        public GenreChangedEventArgs(GenreControl.genreBase newValue)
+        {
+            NewValue = newValue;
         }
     }
 

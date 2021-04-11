@@ -110,10 +110,6 @@ namespace WF
             {
                 Song newSong = new Song(newSongForm.SongTitle, newSongForm.SongAuthor, newSongForm.SongDate, newSongForm.SongGenre);
                 songViewDoc.AddSong(newSong);
-                /*ListViewItem item = new ListViewItem();
-                item.Tag = newSong;
-                UpdateItem(item);
-                songListView.Items.Add(item);  */
             }
         }
 
@@ -155,10 +151,6 @@ namespace WF
             if (editSongForm.ShowDialog() == DialogResult.OK)
             {
                 Song newSong = new Song(editSongForm.SongTitle, editSongForm.SongAuthor, editSongForm.SongDate, editSongForm.SongGenre);
-                /*songListView.SelectedItems[0].SubItems[0].Text = newSong.Title;
-                songListView.SelectedItems[0].SubItems[1].Text = newSong.Author;
-                songListView.SelectedItems[0].SubItems[2].Text = newSong.Production.ToShortDateString();
-                songListView.SelectedItems[0].SubItems[3].Text = newSong.Genre;*/
                 songViewDoc.UpdateSong(song, newSong);
             }
         }
@@ -166,20 +158,6 @@ namespace WF
         private void EditSong_Click(object sender, EventArgs e)
         {
             EditSongFunction();
-            /*if (songListView.SelectedItems.Count == 0)
-                return;
-            Song song = (Song)songListView.SelectedItems[0].Tag;
-            AddForm editSongForm = new AddForm(song, songViewDoc.songList_);
-
-            if(editSongForm.ShowDialog() == DialogResult.OK)
-            {
-                Song newSong = new Song(editSongForm.SongTitle, editSongForm.SongAuthor, editSongForm.SongDate, editSongForm.SongGenre);
-                *//*songListView.SelectedItems[0].SubItems[0].Text = newSong.Title;
-                songListView.SelectedItems[0].SubItems[1].Text = newSong.Author;
-                songListView.SelectedItems[0].SubItems[2].Text = newSong.Production.ToShortDateString();
-                songListView.SelectedItems[0].SubItems[3].Text = newSong.Genre;*//*
-                songViewDoc.UpdateSong(song, newSong);
-            }*/
         }
 
         private void EditSongMenuStrip_Click(object sender, EventArgs e)
@@ -220,12 +198,6 @@ namespace WF
         private void DeleteSong_Click(object sender, EventArgs e)
         {
             DeleteSongFunction();
-            /*ListViewItem item = songListView.SelectedItems[0];
-            songListView.Items.Remove(item);
-            CountItems();
-            Song song = (Song)item.Tag;
-            songViewDoc.DeleteSong(song);
-            songViewDoc.songDeletedEv += ViewDoc_DeleteSongEvent;*/
         }
 
         private void DeleteSongMenuStrip_Click(object sender, EventArgs e)
@@ -253,14 +225,12 @@ namespace WF
         {
             ToolStripManager.Merge(viewStatusStrip, ((Model)MdiParent).modelStatusStrip);
             ToolStripManager.Merge(viewToolStrip, ((Model)MdiParent).modelToolStrip);
-            ToolStripManager.Merge(viewMenuStrip, ((Model)MdiParent).modelMenuStrip);
         }
 
         private void View_Deactivate(object sender, EventArgs e)
         {
             ToolStripManager.RevertMerge(((Model)MdiParent).modelStatusStrip, viewStatusStrip);
             ToolStripManager.RevertMerge(((Model)MdiParent).modelToolStrip, viewToolStrip);
-            ToolStripManager.RevertMerge(((Model)MdiParent).modelMenuStrip, viewMenuStrip);
         }
 
         private void filterComboBox_DropDownClosed(object sender, EventArgs e)

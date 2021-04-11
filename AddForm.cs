@@ -60,14 +60,21 @@ namespace WF
             if (!titleTextBox.Text.All(Char.IsLetterOrDigit))
             {
                 e.Cancel = true;
-                addFormErrorProvider.SetError(titleTextBox, "Title contains not alpha numerical characters");
+                addFormErrorProvider.SetError(titleTextBox, "Title contains no-alphanumeric characters");
             }
-            
+
+            if(!composerTextBox.Text.All(Char.IsLetterOrDigit))
+            {
+                e.Cancel = true;
+                addFormErrorProvider.SetError(composerTextBox, "Author contains no-alphanumeric characters");
+            }
+
         }
 
         private void TitleTextBox_Validated(object sender, EventArgs e)
         {
             addFormErrorProvider.SetError(titleTextBox, "");
+            addFormErrorProvider.SetError(composerTextBox, "");
         }
 
         private void AddForm_Load(object sender, EventArgs e)
